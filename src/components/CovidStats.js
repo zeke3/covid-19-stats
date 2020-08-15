@@ -4,6 +4,7 @@ import DeathsStats from './DeathsStats';
 import RecoveredStats from './RecoveredStats';
 import Flags from './Flags';
 import axios from 'axios';
+import { HorizontalBar } from 'react-chartjs-2';
 
 const CovidStats = () => {
 
@@ -13,6 +14,20 @@ const CovidStats = () => {
     const [countries, setCountries] = useState([])
     const [slug, setSlug] = useState([])
     const [countryCode, setCountryCode] = useState("")
+    
+    const data = {
+        labels: ['Confirmed','Deaths','Recovered'],
+        datasets: [{
+            barPercentage: 0.5,
+            barThickness: 25,
+            maxBarThickness: 35,
+            minBarLength: 2,
+            borderColor: 'rgba(0,0,0,0.5)',
+            backgroundColor: 'rgba( 133, 193, 233, 1 )',
+            label: ['Corona statistics chart'],
+            data: [confirmed,deaths,recovered]
+        }]        
+    }
 
     const fetchCountries = () => {
         axios
@@ -80,8 +95,15 @@ const CovidStats = () => {
                     {countries.map((country, index)=>{
                         return <option key={index} className="stat-country" >{country.Country}</option>
                     })}
-                </select> 
-                <Flags countryCode={countryCode} />
+                </select>
+                <div className="m-part" >
+                    <div className="flag">
+                        <Flags countryCode={countryCode} />
+                    </div> 
+                    <div className="chart">
+                        <HorizontalBar data={data} options={{maintainAspectRatio: false}} />
+                    </div>
+                </div>     
             </div>
             <div className="cards">
                 <ConfirmedStats confirmed={confirmed} />

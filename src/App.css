@@ -31,7 +31,7 @@
 {
   height: 450px;
   width: 100%;
-  margin-top:50px;
+  margin-top:30px;
   /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
@@ -115,17 +115,17 @@
 
 .stat-countries
 {
-  height: 220px;
+  /* height: 220px; */
   width: 100%;
-  margin-top: 7px;
+  margin-top: 5px;
   /* border: 1px solid black; */
   text-align:center;
-  justify-content: center;
 }
 
 .country-list
 {
   margin-top: 15px;
+  margin-bottom: 15px;
   width: 150px;
   height: 30px;
   border-radius: 12px;
@@ -135,7 +135,30 @@
 
 .flag
 {
-  margin-top: 40px;
+  /* margin-top: 10px; */
+  padding-top: 18px;
+  width: 50%;
+  /* border: 1px solid black; */
+}
+
+.chart 
+{
+  height: 100%;
+  /* margin-top: 10px; */
+  width: 50%;
+  /* border: 1px solid rgb(199, 11, 11); */
+  /* padding-left: 1px; */
+}
+
+.m-part 
+{
+  display: flex;
+  /* flex-flo w: row wrap; */
+  width: 100%;
+  height: 250px;
+  /* border: 1px solid black; */
+  justify-content: center;
+  /* padding-top: 12px; */
 }
 
 /* End of upper part */
